@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+        db:
+                image: postgres:12.3-alpine
+                container_name: "postgres-general"
+                ports:
+                        - "5432:5432"
+                network_mode: host
+                env_file:
+                        - ".env"
+                volumes:
+                        - postgres-general-v:/var/lib/postgresql/data
+
+volumes:
+        postgres-general-v:
